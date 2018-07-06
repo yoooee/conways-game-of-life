@@ -1,10 +1,25 @@
-export class Test {
-  sayHi() {
-    console.log('hi!');
-    return true;
-  }
-}
+import './app.scss';
 
-const test = new Test();
+import { Game } from './game';
+let startingPattern: Array<Array<number>>;
+startingPattern = [
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,1,0,0,0,0,0],
+  [0,0,0,0,1,0,0,0,0,0],
+  [0,0,0,0,1,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0]
+];
 
-test.sayHi();
+let conwaysGame = new Game(startingPattern);
+
+let gameData = document.getElementById('game');
+gameData.innerHTML= conwaysGame.drawGrid();
+
+setInterval(() => {
+  //gameData.innerHTML = conwaysGame.drawGrid();
+}, 1000);
