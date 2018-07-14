@@ -1,4 +1,5 @@
 import { GridRenderer } from './grid-renderer';
+import { mockGridMarkup } from './test-helper';
 
 describe('Grid Renderer', () => {
 
@@ -16,11 +17,12 @@ describe('Grid Renderer', () => {
           [ { status: 0 }, { status: 0 }, { status: 0 } ]
         ];
 
-        const gridRenderer = new GridRenderer(gridToRender);
-        const renderedGrid = gridRenderer.render();
+        const gridRenderer = new GridRenderer();
+        const renderedGrid = gridRenderer.render(gridToRender);
 
-        expect(renderedGrid).toContain('<div class="col">0</div>');
-        expect(renderedGrid).not.toContain('<div class="col">1</div>');
+        expect(renderedGrid).toContain('0');
+        expect(renderedGrid).not.toContain('1');
+        expect(renderedGrid).toEqual(mockGridMarkup(3, 3, 0));
       });
     });
 
@@ -34,11 +36,12 @@ describe('Grid Renderer', () => {
           [ { status: 1 }, { status: 1 }, { status: 1 } ]
         ];
 
-        const gridRenderer = new GridRenderer(gridToRender);
-        const renderedGrid = gridRenderer.render();
+        const gridRenderer = new GridRenderer();
+        const renderedGrid = gridRenderer.render(gridToRender);
 
-        expect(renderedGrid).toContain('<div class="col">1</div>');
-        expect(renderedGrid).not.toContain('<div class="col">0</div>');
+        expect(renderedGrid).toContain('1');
+        expect(renderedGrid).not.toContain('0');
+        expect(renderedGrid).toEqual(mockGridMarkup(3, 3, 1));
       });
     });
   });

@@ -13,10 +13,15 @@ export class GridBuilder {
 
     for(let row: number = 0; row < this._numOfRows; row++) {
 
-      this._grid[row] = [new Cell(0)];
+      this._grid[row] = [new Cell()];
 
       for(let col: number = 0; col < this._numOfCols; col++) {
-        this._grid[row][col] = new Cell(gridPattern[row][col]);
+
+        const newCell = new Cell();
+        newCell.status = gridPattern[row][col];
+        newCell.x = col;
+        newCell.y = row;
+        this._grid[row][col] = newCell;
       }
     }
     return this._grid;

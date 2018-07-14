@@ -1,8 +1,8 @@
 import './app.scss';
 
 import { Game } from './game';
-let startingPattern: Array<Array<number>>;
-startingPattern = [
+let blinkerPattern: Array<Array<number>>;
+blinkerPattern = [
   [0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0],
@@ -15,11 +15,41 @@ startingPattern = [
   [0,0,0,0,0,0,0,0,0,0]
 ];
 
-let conwaysGame = new Game(startingPattern);
+let beaconPattern: Array<Array<number>>;
+beaconPattern = [
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,1,1,0,0,0,0,0,0],
+  [0,0,1,1,0,0,0,0,0,0],
+  [0,0,0,0,1,1,0,0,0,0],
+  [0,0,0,0,1,1,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0]
+];
+
+let toadPattern: Array<Array<number>>;
+toadPattern = [
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,1,1,1,0,0,0,0],
+  [0,0,1,1,1,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0]
+];
+
+//let conwaysGame = new Game(blinkerPattern);
+//let conwaysGame = new Game(beaconPattern);
+let conwaysGame = new Game(toadPattern);
 
 let gameData = document.getElementById('game');
-gameData.innerHTML= conwaysGame.drawGrid();
 
 setInterval(() => {
-  //gameData.innerHTML = conwaysGame.drawGrid();
+  gameData.innerHTML = conwaysGame.drawGrid();
+  conwaysGame.update();
 }, 1000);

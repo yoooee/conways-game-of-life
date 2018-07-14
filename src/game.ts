@@ -1,30 +1,29 @@
 import { Cell } from './cell';
 import { GridBuilder } from './grid-builder';
 import { GridRenderer } from './grid-renderer';
+import { GridManager } from './grid-manager';
 
 export class Game {
 
-  private _grid = [];
-  private _startingGrid;
+  private _grid;
   private _gridBuilder: GridBuilder = new GridBuilder();
-  private _gridRenderer: GridRenderer;
+  private _gridRenderer: GridRenderer = new GridRenderer();
+  private _gridManager: GridManager = new GridManager();
 
-  constructor(private _startingPattern: Array<Array<number>>) {
-    this._startingGrid = this._gridBuilder.build(_startingPattern);
-    this._gridRenderer = new GridRenderer(this._startingGrid);
+  constructor(private startingPattern: Array<Array<number>>) {
+    this._grid = this._gridBuilder.build(startingPattern);
   }
 
-  get numberOfRows() {
-    console.log('rows ', this._startingGrid.length);
-    return this._startingGrid.length;
-  }
+  update() {
 
-  get numberOfCols() {
-    console.log('cols ', this._startingGrid[0].length);
-    return this._startingGrid[0].length;
+    let gridPattern = this._gridManager.update(this._grid);
+    console.log('so the new pattern is ', gridPattern);
+    this._grid = this._gridBuilder.build(gridPattern);
   }
 
   drawGrid() {
-    return this._gridRenderer.render();
+// 
+    // Return markup to render the entire grid based on pattern.
+    return this._gridRenderer.render(this._grid);
   }
 }

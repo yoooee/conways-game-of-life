@@ -1,26 +1,22 @@
 export class GridRenderer {
 
-  _numberOfRows: number;
-  _numberOfCols: number;
+  constructor() { }
 
-  constructor(private _gridToRender) {
-    this._numberOfRows = _gridToRender.length;
-    this._numberOfCols = _gridToRender[0].length;
-  }
+  render(gridToRender): string {
 
-  render(): string {
+    const numberOfRows = gridToRender.length;
+    const numberOfCols = gridToRender[0].length;
 
     let gridString: string = '';
 
-    for(let row: number = 0; row < this._numberOfRows; row++) {
+    for(let row: number = 0; row < numberOfRows; row++) {
       gridString += '<div class="row">';
 
-      for(let col: number = 0; col < this._numberOfCols; col++){
-        gridString += '<div class="col">' + this._gridToRender[row][col].status + '</div>';
+      for(let col: number = 0; col < numberOfCols; col++){
+        gridString += `<div class="col status_${gridToRender[row][col].status}">${gridToRender[row][col].status}</div>`;
       }
       gridString += '</div>';
     }
-
     return gridString;
   }
 }
