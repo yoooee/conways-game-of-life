@@ -17,13 +17,10 @@ export class Game {
   update() {
 
     let gridPattern = this._gridManager.update(this._grid);
-    console.log('so the new pattern is ', gridPattern);
     this._grid = this._gridBuilder.build(gridPattern);
   }
 
   drawGrid() {
-// 
-    // Return markup to render the entire grid based on pattern.
     return this._gridRenderer.render(this._grid);
   }
 }

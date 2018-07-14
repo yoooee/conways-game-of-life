@@ -13,7 +13,7 @@ export class GridRenderer {
       gridString += '<div class="row">';
 
       for(let col: number = 0; col < numberOfCols; col++){
-        gridString += `<div class="col status_${gridToRender[row][col].status}">${gridToRender[row][col].status}</div>`;
+        gridString += `<div class="col status_${gridToRender[row][col].status}"></div>`;
       }
       gridString += '</div>';
     }
