@@ -25,12 +25,12 @@ export class GridManager {
     let newPattern: GridPattern = [];
     console.log('Starting Pattern = ', gridPattern);
     //debugger;
-    for (let i = 0; i < gridPattern.length; i++) {
-      newPattern[i] = [];
-      console.log('ROW ' + i + ' --------------------------------------------');
-      for (let j = 0; j < gridPattern[0].length; j++) {
+    for (let y = 0; y < gridPattern.length; y++) {
+      newPattern[y] = [];
+      console.log('ROW is Y ' + y + ' --------------------------------------------');
+      for (let x = 0; x < gridPattern[0].length; x++) {
 
-        currentCell = gridPattern[i][j];
+        currentCell = gridPattern[y][x];
 
         const northNeighbor: number = this._getNeighborStatus(gridPattern, currentCell.x, currentCell.y - 1);
         const northEastNeighbor: number = this._getNeighborStatus(gridPattern, currentCell.x + 1, currentCell.y - 1);
@@ -41,32 +41,32 @@ export class GridManager {
         const westNeighbor: number = this._getNeighborStatus(gridPattern, currentCell.x - 1, currentCell.y);
         const northWestNeighbor: number = this._getNeighborStatus(gridPattern, currentCell.x - 1, currentCell.y - 1);
 
-        console.log('COL ', j);
+        console.log('COL is X ', x);
         const totalActiveCells = northNeighbor + northEastNeighbor + eastNeighbor + southEastNeighbor + southNeighbor + southWestNeighbor + westNeighbor + northWestNeighbor;
 
         if (currentCell.status === 1) {
           // Alive
           if (totalActiveCells < 2) {
             //currentCell.status = 0;
-            newPattern[i][j] = 0;
-            //newPattern[i][j] = new Cell(i, j, 0);
-            //newPattern[i][j] = new DeadCell(currentCell.x, currentCell.y);
+            newPattern[y][x] = 0;
+            //newPattern[y][x] = new Cell(i, j, 0);
+            //newPattern[y][x] = new DeadCell(currentCell.x, currentCell.y);
           }
           if ((totalActiveCells >= 2) && (totalActiveCells <= 3)) {
             //currentCell.status = 1;
-            newPattern[i][j] = 1;
+            newPattern[y][x] = 1;
           }
           if (totalActiveCells > 3) {
             //currentCell.status = 0;
-            newPattern[i][j] = 0;
+            newPattern[y][x] = 0;
           }
         } else {
           // Dead
           if (totalActiveCells === 3) {
-            newPattern[i][j] = 1;
+            newPattern[y][x] = 1;
           }
           else {
-            newPattern[i][j] = 0;
+            newPattern[y][x] = 0;
           }
         }
       }

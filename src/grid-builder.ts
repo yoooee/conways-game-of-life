@@ -4,11 +4,10 @@ import { Grid, GridPattern } from './models';
 export class GridBuilder {
 
   build(gridPattern: GridPattern) {
-
     let grid: Grid = [];
+
     const numOfRows: number = gridPattern.length;
     const numOfCols: number = gridPattern[0].length;
-
 
     for(let row: number = 0; row < numOfRows; row++) {
 
