@@ -5,7 +5,7 @@ export class Cell {
   private _x: number;
   private _y: number;
 
-  get status() {
+  get status(): number {
     return this._status;
   }
 
@@ -13,7 +13,7 @@ export class Cell {
     this._status = status;
   }
 
-  get x() {
+  get x(): number {
     return this._x;
   }
 
@@ -21,7 +21,7 @@ export class Cell {
     this._x = x;
   }
 
-  get y() {
+  get y(): number {
     return this._y;
   }
 

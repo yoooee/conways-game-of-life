@@ -1,8 +1,9 @@
 import { Cell } from './cell';
+import { Grid } from './models';
 
 export class GridBuilder {
 
-  private _grid: Array<Array<Cell>> = [];
+  private _grid: Grid = [];
   private _numOfRows: number;
   private _numOfCols: number;
 
