@@ -3,12 +3,12 @@ import { Grid, GridPattern } from './models';
 
 export class GridBuilder {
 
-
   build(gridPattern: GridPattern) {
 
     let grid: Grid = [];
     const numOfRows: number = gridPattern.length;
     const numOfCols: number = gridPattern[0].length;
+
 
     for(let row: number = 0; row < numOfRows; row++) {
 
@@ -24,5 +24,7 @@ export class GridBuilder {
       }
     }
     return grid;
+
+    //return gridPattern.map(y => y.map(x => new Cell(x, y, gridPattern[y][x])))
   }
 }

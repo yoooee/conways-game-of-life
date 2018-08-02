@@ -19,4 +19,5 @@ export class GridRenderer {
     }
     return gridString;
   }
+  // Do some map methods
 }

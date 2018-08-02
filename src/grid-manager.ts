@@ -42,16 +42,6 @@ export class GridManager {
         const northWestNeighbor: number = this._getNeighborStatus(gridPattern, currentCell.x - 1, currentCell.y - 1);
 
         console.log('COL ', j);
-        //console.log('NORTH NEIGHBOR', northNeighbor);
-        //console.log('NORTH EAST NEIGHBOR', northEastNeighbor);
-        //console.log('EAST NEIGHBOR', eastNeighbor);
-        //console.log('SOUTH EAST NEIGHBOR', southEastNeighbor);
-        //console.log('SOUTH NEIGHBOR', southNeighbor);
-        //console.log('SOUTH WEST NEIGHBOR', southWestNeighbor);
-        //console.log('WEST NEIGHBOR', westNeighbor);
-        //console.log('NORTH WEST NEIGHBOR', northWestNeighbor);
-        // check cell for neighbors
-        // update cell status accordingly
         const totalActiveCells = northNeighbor + northEastNeighbor + eastNeighbor + southEastNeighbor + southNeighbor + southWestNeighbor + westNeighbor + northWestNeighbor;
 
         if (currentCell.status === 1) {
@@ -59,6 +49,8 @@ export class GridManager {
           if (totalActiveCells < 2) {
             //currentCell.status = 0;
             newPattern[i][j] = 0;
+            //newPattern[i][j] = new Cell(i, j, 0);
+            //newPattern[i][j] = new DeadCell(currentCell.x, currentCell.y);
           }
           if ((totalActiveCells >= 2) && (totalActiveCells <= 3)) {
             //currentCell.status = 1;

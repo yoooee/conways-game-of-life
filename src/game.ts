@@ -2,13 +2,14 @@ import { Cell } from './cell';
 import { GridBuilder } from './grid-builder';
 import { GridRenderer } from './grid-renderer';
 import { GridManager } from './grid-manager';
+import { Grid, GridPattern } from './models';
 
 export class Game {
 
-  private _grid;
+  private _grid: Grid;
 
   constructor(
-    startingPattern: Array<Array<number>>,
+    startingPattern: GridPattern,
     private _gridBuilder: GridBuilder = new GridBuilder(),
     private _gridRenderer: GridRenderer = new GridRenderer(),
     private _gridManager: GridManager = new GridManager(),
@@ -18,7 +19,7 @@ export class Game {
 
   update() {
 
-    let gridPattern = this._gridManager.update(this._grid);
+    const gridPattern: GridPattern = this._gridManager.update(this._grid);
     this._grid = this._gridBuilder.build(gridPattern);
   }
 
