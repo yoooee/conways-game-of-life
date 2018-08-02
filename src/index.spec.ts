@@ -21,11 +21,6 @@ describe('Home Page', () => {
 
     beforeEach(() => {
       subject = new Game(startingPattern);
-    })
-
-    it('should create a new game 9x9 game grid', () => {
-      expect(subject.numberOfRows).toEqual(rowCount);
-      expect(subject.numberOfCols).toEqual(colCount);
     });
 
     describe('Draw', () => {

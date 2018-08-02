@@ -7,7 +7,7 @@ export const mockGridMarkup = (rows: number, cols: number, cellStatus: number) =
     output += '<div class="row">'
     for (let j = 0; j < cols; j++) {
 
-      output += `<div class="col">${cellStatus}</div>`
+      output += `<div class="col status_${cellStatus}"></div>`
     }
     output += '</div>'
   }
