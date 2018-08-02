@@ -1,7 +1,8 @@
+import { GridPattern } from './models';
 import './app.scss';
 
 import { Game } from './game';
-let blinkerPattern: Array<Array<number>>;
+let blinkerPattern: GridPattern;
 blinkerPattern = [
   [0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0],
@@ -15,7 +16,7 @@ blinkerPattern = [
   [0,0,0,0,0,0,0,0,0,0]
 ];
 
-let beaconPattern: Array<Array<number>>;
+let beaconPattern: GridPattern;
 beaconPattern = [
   [0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0],
@@ -29,7 +30,7 @@ beaconPattern = [
   [0,0,0,0,0,0,0,0,0,0]
 ];
 
-let toadPattern: Array<Array<number>>;
+let toadPattern: GridPattern;
 toadPattern = [
   [0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0],
@@ -43,7 +44,7 @@ toadPattern = [
   [0,0,0,0,0,0,0,0,0,0]
 ];
 
-let randomPattern: Array<Array<number>>;
+let randomPattern: GridPattern;
 randomPattern = [
   [0,1,0,0,0,0,0,0,0,0],
   [1,1,1,0,0,0,0,0,0,0],

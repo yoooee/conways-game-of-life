@@ -1,3 +1,5 @@
+import { GridPattern } from './models';
+
 export class GridManager {
 
   private _nw: number;
@@ -20,7 +22,7 @@ export class GridManager {
   update(gridPattern) {
     // loop through array pattern.
     let currentCell;
-    let newPattern: Array<Array<number>> = [];
+    let newPattern: GridPattern = [];
     console.log('Starting Pattern = ', gridPattern);
     //debugger;
     for (let i = 0; i < gridPattern.length; i++) {

@@ -1,4 +1,5 @@
 import { Game } from './game';
+import { GridPattern } from './models';
 
 describe('Home Page', () => {
 
@@ -7,7 +8,7 @@ describe('Home Page', () => {
     let subject;
     const rowCount: number = 9;
     const colCount: number = 9;
-    let startingPattern: Array<Array<number>> = [
+    let startingPattern: GridPattern = [
       [0,0,0,0,0,0,0,0,0],
       [0,0,0,0,0,0,0,0,0],
       [0,0,0,0,0,0,0,0,0],
