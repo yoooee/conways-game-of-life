@@ -6,11 +6,13 @@ import { GridManager } from './grid-manager';
 export class Game {
 
   private _grid;
-  private _gridBuilder: GridBuilder = new GridBuilder();
-  private _gridRenderer: GridRenderer = new GridRenderer();
-  private _gridManager: GridManager = new GridManager();
 
-  constructor(private startingPattern: Array<Array<number>>) {
+  constructor(
+    startingPattern: Array<Array<number>>,
+    private _gridBuilder: GridBuilder = new GridBuilder(),
+    private _gridRenderer: GridRenderer = new GridRenderer(),
+    private _gridManager: GridManager = new GridManager(),
+  ) {
     this._grid = this._gridBuilder.build(startingPattern);
   }
 
