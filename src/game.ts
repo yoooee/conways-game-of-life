@@ -18,7 +18,6 @@ export class Game {
   }
 
   update() {
-
     const gridPattern: GridPattern = this._gridManager.update(this._grid);
     this._grid = this._gridBuilder.build(gridPattern);
   }

@@ -2,15 +2,6 @@ import { GridPattern } from './models';
 
 export class GridManager {
 
-  private _nw: number;
-  private _n: number;
-  private _ne: number;
-  private _e: number;
-  private _se: number;
-  private _s: number;
-  private _sw: number
-  private _w: number;
-
   private _getNeighborStatus(pattern, x, y) {
     if (pattern[y] && pattern[y][x]) {
       return pattern[y][x].status;
@@ -19,12 +10,13 @@ export class GridManager {
     }
   }
 
-  update(gridPattern) {
+  update(gridPattern): GridPattern {
     // loop through array pattern.
     let currentCell;
     let newPattern: GridPattern = [];
     console.log('Starting Pattern = ', gridPattern);
     //debugger;
+
     for (let y = 0; y < gridPattern.length; y++) {
       newPattern[y] = [];
       console.log('ROW is Y ' + y + ' --------------------------------------------');
@@ -32,6 +24,7 @@ export class GridManager {
 
         currentCell = gridPattern[y][x];
 
+        //TODO: Refactor to use Cell Finder
         const northNeighbor: number = this._getNeighborStatus(gridPattern, currentCell.x, currentCell.y - 1);
         const northEastNeighbor: number = this._getNeighborStatus(gridPattern, currentCell.x + 1, currentCell.y - 1);
         const eastNeighbor: number = this._getNeighborStatus(gridPattern, currentCell.x + 1, currentCell.y);
@@ -44,6 +37,7 @@ export class GridManager {
         console.log('COL is X ', x);
         const totalActiveCells = northNeighbor + northEastNeighbor + eastNeighbor + southEastNeighbor + southNeighbor + southWestNeighbor + westNeighbor + northWestNeighbor;
 
+        //TODO: Refactor to use isActive
         if (currentCell.status === 1) {
           // Alive
           if (totalActiveCells < 2) {
@@ -71,6 +65,7 @@ export class GridManager {
         }
       }
     }
+    //TODO: Refactor to return Grid instead of GridPattern
     // return new pattern
     console.log('what is the new pattern? ', newPattern);
     return newPattern;
